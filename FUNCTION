@@ -1,0 +1,95 @@
+Anonymous Functions & IIFE:
+Print odd numbers in an array:
+(function printOddNumbers(arr) {
+  arr.forEach(function (num) {
+    if (num % 2 !== 0) {
+      console.log(num);
+    }
+  });
+})([1, 2, 3, 4, 5, 6, 7, 8, 9]);
+
+Convert all the strings to title caps in a string array:
+(function convertToTitleCaps(strArray) {
+  var result = strArray.map(function (str) {
+    return str.charAt(0).toUpperCase() + str.slice(1).toLowerCase();
+  });
+  console.log(result);
+})(["apple", "banana", "cherry"]);
+
+Sum of all numbers in an array:
+(function sumArray(arr) {
+  var sum = arr.reduce(function (acc, num) {
+    return acc + num;
+  }, 0);
+  console.log(sum);
+})([1, 2, 3, 4, 5]);
+
+Return all the prime numbers in an array:
+(function getPrimeNumbers(arr) {
+  var primes = arr.filter(function (num) {
+    for (var i = 2; i < num; i++) {
+      if (num % i === 0) {
+        return false;
+      }
+    }
+    return num > 1;
+  });
+  console.log(primes);
+})([1, 2, 3, 4, 5, 6, 7, 8, 9]);
+
+Return median of two sorted arrays of the same size:
+(function findMedian(arr1, arr2) {
+  var mergedArr = arr1.concat(arr2).sort(function (a, b) {
+    return a - b;
+  });
+  var length = mergedArr.length;
+  var median = length % 2 === 0 ? (mergedArr[length / 2 - 1] + mergedArr[length / 2]) / 2 : mergedArr[Math.floor(length / 2)];
+  console.log(median);
+})([1, 3, 5], [2, 4, 6]);
+
+Remove duplicates from an array:
+(function removeDuplicates(arr) {
+  var uniqueArr = arr.filter(function (value, index, self) {
+    return self.indexOf(value) === index;
+  });
+  console.log(uniqueArr);
+})([1, 2, 2, 3, 4, 4, 5]);
+Rotate an array by k times:
+(function rotateArray(arr, k) {
+  var rotatedArr = arr.slice(k).concat(arr.slice(0, k));
+  console.log(rotatedArr);
+})([1, 2, 3, 4, 5], 2);
+Arrow Functions:
+
+Print odd numbers in an array:
+const printOddNumbers = arr => arr.forEach(num => num % 2 !== 0 && console.log(num));
+printOddNumbers([1, 2, 3, 4, 5, 6, 7, 8, 9]);
+Conveconst convertToTitleCaps = strArray => strArray.map(str => str.charAt(0).toUpperCase() + str.slice(1).toLowerCase());
+console.log(convertToTitleCaps(["apple", "banana", "cherry"]));
+rt all the strings to title caps in a string array:
+
+Sum of all numbers in an array:
+const sumArray = arr => arr.reduce((acc, num) => acc + num, 0);
+console.log(sumArray([1, 2, 3, 4, 5]));
+Return all the prime numbers in an array:
+const getPrimeNumbers = arr => arr.filter(num => {
+  for (let i = 2; i < num; i++) {
+    if (num % i === 0) {
+      return false;
+    }
+  }
+  return num > 1;
+});
+console.log(getPrimeNumbers([1, 2, 3, 4, 5, 6, 7, 8, 9]));
+Return all the palindromes in an array:
+const getPalindromes = arr => arr.filter(str => str === str.split("").reverse().join(""));
+console.log(getPalindromes(["level", "hello", "deed", "world"]));
+
+
+
+
+
+
+
+
+
